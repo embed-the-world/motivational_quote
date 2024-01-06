@@ -1,7 +1,14 @@
 import requests
 import json
 
-anfrage = requests.get("https://zenquotes.io/api/random").json()
-quote = anfrage[0]["q"]
-author = anfrage[0]["a"]
-print (quote + " - by " + author)
+def get_quote():
+    return requests.get("https://zenquotes.io/api/random").json()
+
+def print_quote(zenquote_return):
+    quote = zenquote_return[0]["q"]
+    author = zenquote_return[0]["a"]
+    print (quote + " - by " + author)
+
+if __name__ == "__main__":
+    print_quote(get_quote())
+
